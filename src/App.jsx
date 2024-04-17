@@ -9,17 +9,8 @@ import Single from './views/Single';
 const App = () => {
   return (
     <>
-      <Router basename={import.meta.env.BASE_URL}></Router>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <Layout />
-        {/*}
-        <h1>My App</h1>
-        <nav>
-          <Link to="/">Etusivu </Link>
-          <Link to="/profile">Profiili </Link>
-          <Link to="/upload">Upload</Link>
-        </nav>
-        */}
 
         <Routes>
           <Route path="/" element={<Layout />} />
