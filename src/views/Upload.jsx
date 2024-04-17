@@ -5,10 +5,12 @@ const Upload = () => {
   const [file, setFile] = useState('');
   const [name, setName] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Tiedostoa yritetäään lähettää');
     console.log('event', event);
+    console.log('file', file);
+    console.log('name', name);
   };
 
   return (

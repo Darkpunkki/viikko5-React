@@ -9,6 +9,7 @@ import Single from './views/Single';
 const App = () => {
   return (
     <>
+      <Router basename={import.meta.env.BASE_URL}></Router>
       <Router>
         <Layout />
         {/*}
