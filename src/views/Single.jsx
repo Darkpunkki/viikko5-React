@@ -17,7 +17,8 @@ const Single = () => {
     item = location.state.item;
   }
 
-  item = location.state;
+  item = location.state.item;
+  console.log(item);
 
   return (
     <SingleView selectedItem={item} setSelectedItem={() => navigate(-1)} />
