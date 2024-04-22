@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import MediaRow from '../components/MediaRow';
-import mediaArray from '../data/media';
 import {fetchData} from '../lib/fetchData';
 
 const Home = () => {
@@ -8,8 +7,22 @@ const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
 
   const getMedia = async () => {
-    const mediaResult = await fetchData('test.json');
-    setMediaArray(mediaResult);
+    const mediaResult = await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media',
+    );
+
+    const mediaWithUser = await Promise.all(
+      mediaResult.map(async (mediaItem) => {
+        const userResult = await fetchData(
+          import.meta.env.VITE_AUTH_API + '/users/' + mediaItem.user_id,
+        );
+        return {...mediaItem, username: userResult.username};
+      }),
+    );
+
+    console.log('mediaWithUser', mediaWithUser);
+
+    setMediaArray(mediaWithUser);
   };
   //getMedia();
   useEffect(() => {
@@ -17,7 +30,7 @@ const Home = () => {
   }, []);
 
   //console.log(selectedItem);
-  console.log(mediaArray);
+  //console.log(mediaArray);
   return (
     <>
       <h2>My Media</h2>
@@ -25,6 +38,7 @@ const Home = () => {
         <thead>
           <tr>
             <th>Thumbnail</th>
+            <th>Owner</th>
             <th>Title</th>
             <th>Description</th>
             <th>Created</th>
