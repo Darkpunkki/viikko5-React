@@ -1,9 +1,11 @@
 import {Link} from 'react-router-dom';
-import {useUser} from '../hooks/ApiHooks';
-import {useEffect, useState} from 'react';
+import {useUser} from '../hooks/apiHooks';
+import {useEffect} from 'react';
+import {useUserContext} from '../contexts/UserContext';
+import UserData from '../components/UserData';
 
 export const Profile = () => {
-  const [user, setUser] = useState(null);
+  const {setUser} = useUserContext();
   const {getUserByToken} = useUser();
 
   const getUser = async () => {
@@ -28,13 +30,7 @@ export const Profile = () => {
         <Link to="/">Navigoi takaisin etusivulle</Link>
       </p>
       <div>
-        {user && (
-          <>
-            <p>Käyttäjätunnus: {user.username} </p>
-            <p>email: {user.email} </p>
-            <p>luotu: {new Date(user.created_at).toLocaleString('fi-FI')}</p>
-          </>
-        )}
+        <UserData />
       </div>
     </div>
   );
