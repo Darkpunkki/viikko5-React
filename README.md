@@ -1,1 +1,1 @@
-Linkki [palvelimelle](https://users.metropolia.fi/~jimipe/wsk-routing/)
+Linkki [palvelimelle](https://users.metropolia.fi/~jimipe/forms/)

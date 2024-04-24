@@ -4,23 +4,16 @@ const Layout = () => (
   <div>
     <header>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/upload">Upload</Link>
-          </li>
-        </ul>
+        <Link to="/">Etusivu 🏠</Link>
+        <Link to="/profile">Profiili 😃</Link>
+        <Link to="/upload">Upload</Link>
+        <Link to="/login">Login</Link>
       </nav>
-      <main>
-        <Outlet />
-      </main>
-      <footer>Copyright 2024</footer>
     </header>
+    <main>
+      <Outlet />
+    </main>
+    <footer className="m-12 text-xl">Copyright 2024</footer>
   </div>
 );
 

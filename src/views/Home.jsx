@@ -2,8 +2,10 @@ import MediaRow from '../components/MediaRow';
 import {useMedia} from '../hooks/ApiHooks';
 
 const Home = () => {
+  // const [selectedItem, setSelectedItem] = useState(null);
+
   const {mediaArray} = useMedia();
-  console.log('mediaArray', mediaArray);
+
   return (
     <>
       <h2>My Media</h2>
@@ -25,7 +27,7 @@ const Home = () => {
             <MediaRow
               key={item.media_id}
               item={item}
-              //setSelectedItem={setSelectedItem}
+              // setSelectedItem={setSelectedItem}
             />
           ))}
         </tbody>
