@@ -1,1 +1,1 @@
-Linkki [palvelimelle](https://users.metropolia.fi/~jimipe/context/)
+Linkki [palvelimelle](https://users.metropolia.fi/~jimipe/upload/)
